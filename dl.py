@@ -648,17 +648,8 @@ def download(URL):
                 name = f"{basename}_SS{ext}"
 
                 print(f"[*] Downloading MP4 stream: {link}")
-                ydl_opts = {
-                    'outtmpl': name,
-                    'quiet': False,
-                    'no_warnings': False,
-                    'http_headers': headers
-                }
-                with YoutubeDL(ydl_opts) as ydl:
-                    try:
-                        ydl.download([link])
-                    except Exception as e:
-                        print(f"[!] YoutubeDL error: {e}")
+                
+                        
             elif "hls" in source_json:
                 link = source_json["hls"]
                 # Check if the link is base64 encoded
@@ -679,17 +670,8 @@ def download(URL):
                 name = f"{basename}_SS{ext}"
 
                 print(f"[*] Downloading HLS stream: {link}")
-                ydl_opts = {
-                    'outtmpl': name,
-                    'quiet': False,
-                    'no_warnings': False,
-                    'http_headers': headers
-                }
-                with YoutubeDL(ydl_opts) as ydl:
-                    try:
-                        ydl.download([link])
-                    except Exception as e:
-                        print(f"[!] YoutubeDL error: {e}")
+     #           
+                        
             else:
                 print("[!] Could not find downloadable URL. The site might have changed.")
                 print(f"Available keys in source_json: {list(source_json.keys())}")
