@@ -671,7 +671,13 @@ def download(URL):
 
                 print(f"[*] Downloading HLS stream: {link}")
      #           
-                        
+            if link:
+                # Tulis ke file output_link.txt (append mode)
+                with open("output_link.txt", "a", encoding="utf-8") as f:
+                    f.write(link + "\n")
+                print(f"[+] Link saved to output_link.txt")
+
+              
             else:
                 print("[!] Could not find downloadable URL. The site might have changed.")
                 print(f"Available keys in source_json: {list(source_json.keys())}")
